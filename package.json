@@ -1,0 +1,16 @@
+{
+  "name": "pdf-generator-experiment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "C.J. Winslow <whoaa512@gmail.com> (https://github.com/whoaa512)",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "jsx-pdf": "^2.0.0",
+    "pdfmake": "^0.1.54"
+  }
+}
