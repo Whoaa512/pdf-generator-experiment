@@ -18,7 +18,7 @@
     "jsx-pdf": "^2.0.0",
     "pdfmake": "^0.1.54",
     "pify": "^4.0.1",
-    "safe-eval": "^0.4.1"
+    "vm2": "^3.6.10"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.2.0",

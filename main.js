@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 import pify from 'pify'
-import safeEval from 'safe-eval'
+import { VM } from 'vm2'
 import { transformAsync } from '@babel/core'
 import JsxPdf from 'jsx-pdf'
 import PDFMake from 'pdfmake'
@@ -49,11 +49,11 @@ async function run(argument) {
 
     log.debug({ compiled }, 'transformed')
 
-    const context = { JsxPdf }
-    const output = safeEval(
-        `${compiled.code}`.replace('"use strict";', ''),
-        context,
-    )
+    const vm = new VM({ timeout: 10000 })
+
+    vm.freeze(JsxPdf, 'JsxPdf')
+
+    const output = vm.run(`${compiled.code}`.replace('"use strict";', ''))
 
     log.debug({ output }, 'evaluated result')
 
