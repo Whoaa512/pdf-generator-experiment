@@ -1,0 +1,30 @@
+extends: ['fictiv']
+parserOptions:
+    ecmaFeatures:
+        jsx: true
+env:
+    es6: true
+    node: true
+    jest: true
+rules:
+    no-undefined: 'off'
+    react/jsx-filename-extension: 'off'
+    jest/prefer-expect-assertions: error
+    flowtype/require-return-type: 'off'
+    flowtype/show-errors: 'off'
+settings:
+    # import/internal-module-folders: ['~/']
+    import/resolver:
+        babel-module: {}
+    react:
+        version: '16.0'
+        pragma: 'JsxPdf'
+
+overrides:
+-
+    files:
+        - "**/__tests__/**"
+        - "**/__mocks__/**"
+    rules:
+        no-magic-numbers: 'off'
+        flowtype/require-return-type: 'off'

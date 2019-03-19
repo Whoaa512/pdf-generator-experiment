@@ -1,0 +1,3 @@
+<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+    <content>This will appear in my PDF!</content>
+</document>
