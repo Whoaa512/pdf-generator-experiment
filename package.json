@@ -6,6 +6,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "start-experiment": "node experiment/index.js"
   },
   "dependencies": {
@@ -14,11 +17,19 @@
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
+    "@zeit/next-css": "^1.0.1",
     "esm": "^3.2.18",
     "get-stream": "^5.0.0",
     "jsx-pdf": "^2.0.0",
+    "monaco-editor": "^0.16.2",
+    "next": "^8.0.3",
     "pdfmake": "^0.1.54",
     "pify": "^4.0.1",
+    "prismjs": "^1.15.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-simple-code-editor": "^0.9.4",
+    "ui-box": "^1.4.0",
     "vm2": "^3.6.10"
   },
   "devDependencies": {
