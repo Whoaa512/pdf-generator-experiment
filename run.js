@@ -10,7 +10,8 @@ import getStream from 'get-stream'
 import fonts from './fonts'
 
 const readFile = pify(fs.readFile)
-const DEBUG = true
+let DEBUG = false
+const DEFAULT_TIMEOUT = 5000
 
 export const log = {
     debug(...args) {
@@ -30,8 +31,15 @@ export const log = {
     },
 }
 
-export async function run(filePath) {
+export async function run(
+    filePath,
+    { debug = false, timeout = DEFAULT_TIMEOUT } = {},
+) {
     const jsxString = await readFile(filePath)
+
+    if (debug === true) {
+        DEBUG = true
+    }
 
     log.debug({ jsxString }, 'read file')
     const code = `JsxPdf.renderPdf(${jsxString})`
@@ -51,7 +59,7 @@ export async function run(filePath) {
     log.debug('transformed:', compiled.code)
     log.debug('~~~~~~~~')
 
-    const vm = new VM({ timeout: 5000 })
+    const vm = new VM({ timeout })
 
     vm.freeze(JsxPdf, 'JsxPdf')
 
@@ -66,9 +74,11 @@ export async function run(filePath) {
     const pdfBuffer = await getStream.buffer(pdfStream)
 
     log.debug('pdfBuffer', pdfBuffer)
-    const dataUrl = `"data:application/pdf;base64,${pdfBuffer.toString(
+    const dataUrl = `data:application/pdf;base64,${pdfBuffer.toString(
         'base64',
-    )}"`
+    )}`
 
     log.debug('dataUrl', dataUrl)
+
+    return dataUrl
 }

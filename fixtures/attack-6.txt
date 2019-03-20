@@ -1,0 +1,8 @@
+{});function main(){
+            while(1){}
+        };
+        new Proxy({}, {
+            getPrototypeOf(t){
+                global.main();
+            }
+        });(

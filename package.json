@@ -5,6 +5,7 @@
   "author": "C.J. Winslow <whoaa512@gmail.com> (https://github.com/whoaa512)",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
     "start": "node index.js"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "eslint": "^5.15.3",
     "eslint-config-fictiv": "^10.0.0",
     "eslint-import-resolver-babel-module": "^5.0.1",
-    "flow-bin": "^0.95.1"
+    "flow-bin": "^0.95.1",
+    "jest": "^24.5.0"
   }
 }

