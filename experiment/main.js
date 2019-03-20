@@ -1,6 +1,6 @@
 import { run, log } from './run'
 
-run('./test-jsx.txt')
+run('./fixtures/test-jsx.txt')
     .then(() => {
         return process.exit()
     })

@@ -9,7 +9,7 @@ jest.mock('get-stream', () => ({
 test('happy path', async () => {
     expect.assertions(1)
 
-    const result = await run('./test-jsx.txt')
+    const result = await run('./fixtures/test-jsx.txt')
 
     expect(result).toMatchSnapshot()
 })

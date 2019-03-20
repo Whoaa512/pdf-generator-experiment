@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "start": "node index.js"
+    "start-experiment": "node experiment/index.js"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
