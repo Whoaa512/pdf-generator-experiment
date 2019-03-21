@@ -7,7 +7,7 @@ import JsxPdf from 'jsx-pdf'
 import PDFMake from 'pdfmake'
 import getStream from 'get-stream'
 
-import fonts from '../fonts'
+import fonts from '../src/fonts'
 
 const readFile = pify(fs.readFile)
 let DEBUG = false
