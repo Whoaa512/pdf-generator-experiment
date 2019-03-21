@@ -4,15 +4,15 @@ import Box from 'ui-box'
 import fetch from 'unfetch'
 import Editor from 'react-simple-code-editor'
 import { highlight, languages } from 'prismjs/components/prism-core'
+import 'normalize.css'
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/themes/prism.css'
-import 'prismjs/themes/prism-dark.css'
-import 'normalize.css'
+import 'prism-themes/themes/prism-a11y-dark.css'
 
-import '../styles/base.css'
+import './styles/base.css'
 
 const DEFAULT_CODE = `
 <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
@@ -55,7 +55,6 @@ const Home = () => {
                     flex={1}
                     display="flex"
                     height="100%"
-                    backgroundColor="#616B79"
                     className="editorWrapper"
                 >
                     <Editor
@@ -78,7 +77,8 @@ const Home = () => {
                         style={{
                             fontSize: 16,
                             width: '100%',
-                            // backgroundColor: '#436e6f',
+                            color: '#b0bec5',
+                            backgroundColor: '#2b2b2b',
                             fontVariantLigatures: 'common-ligatures',
                             borderRadius: '3px',
                         }}
