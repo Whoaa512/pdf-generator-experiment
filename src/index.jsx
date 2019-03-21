@@ -11,13 +11,25 @@ import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/themes/prism.css'
 import 'prism-themes/themes/prism-a11y-dark.css'
-
 import './styles/base.css'
+
+import { log } from './utils/log'
 
 const DEFAULT_CODE = `
 <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
     <content>This will appear in my PDF!</content>
 </document>`.trim()
+const DEBOUNCE_MS = 1000
+const onChange = _.debounce(async (code, state, setState) => {
+    try {
+        const pdfSrc = await getPdfSrc(code)
+
+        setState({ ...state, code, pdfSrc, loading: false })
+    } catch (error) {
+        log.error(error)
+        setState({ ...state, code, pdfSrc: null, loading: false, error })
+    }
+}, DEBOUNCE_MS)
 
 const Home = () => {
     const editorEl = useRef(null)
@@ -60,17 +72,9 @@ const Home = () => {
                     <Editor
                         ref={editorEl}
                         value={state.code}
-                        onValueChange={async code => {
+                        onValueChange={code => {
                             setState({ ...state, code, loading: true })
-                            const pdfSrc = await (await fetch('./api/pdf', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({
-                                    content: code,
-                                }),
-                            })).text()
-
-                            setState({ ...state, code, pdfSrc, loading: false })
+                            onChange(code, state, setState)
                         }}
                         highlight={code => highlight(code, languages.jsx)}
                         padding={10}
@@ -99,3 +103,13 @@ const Home = () => {
 }
 
 export default Home
+
+async function getPdfSrc(code) {
+    return (await fetch('./api/pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            content: code,
+        }),
+    })).text()
+}
