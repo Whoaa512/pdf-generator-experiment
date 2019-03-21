@@ -23,6 +23,7 @@
     "get-stream": "^5.0.0",
     "jsx-pdf": "^2.0.0",
     "lodash": "^4.17.11",
+    "normalize.css": "^8.0.1",
     "pdfmake": "^0.1.54",
     "pify": "^4.0.1",
     "prismjs": "^1.15.0",

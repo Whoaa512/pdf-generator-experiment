@@ -10,6 +10,7 @@ import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/themes/prism.css'
 import 'prismjs/themes/prism-dark.css'
+import 'normalize.css'
 
 const DEFAULT_CODE = `
 <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
