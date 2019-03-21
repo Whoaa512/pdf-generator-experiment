@@ -83,11 +83,13 @@ module.exports = async (req, res) => {
             'base64',
         )}`
 
-        setDebug(true)
+        // setDebug(true)
         log.debug({ dataUrl })
         setDebug(false)
 
-        res.sendStatus(STATUS_CODES.OK)
+        res.type('text')
+
+        res.send(dataUrl)
     } catch (error) {
         log.error(error)
         const statusCode =

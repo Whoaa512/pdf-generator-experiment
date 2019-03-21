@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import _ from 'lodash'
+import React, { useState, useRef, useEffect } from 'react'
 import Box from 'ui-box'
+import fetch from 'unfetch'
 import Editor from 'react-simple-code-editor'
 import { highlight, languages } from 'prismjs/components/prism-core'
 import 'prismjs/components/prism-clike'
@@ -9,8 +11,24 @@ import 'prismjs/components/prism-jsx'
 import 'prismjs/themes/prism.css'
 import 'prismjs/themes/prism-dark.css'
 
-export default () => {
-    const [state, setState] = useState({ code: 'hello(foo)' })
+const DEFAULT_CODE = `
+<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+    <content>This will appear in my PDF!</content>
+</document>`
+
+const Home = () => {
+    const editorEl = useRef(null)
+    const [state, setState] = useState({
+        code: DEFAULT_CODE,
+        pdfSrc: null,
+        loadingPdf: true,
+    })
+
+    useEffect(() => {
+        if (state.pdfSrc == null && editorEl && editorEl.current) {
+            _.invoke(editorEl, 'current.props.onValueChange', state.code)
+        }
+    }, [editorEl])
 
     return (
         <Box
@@ -21,8 +39,20 @@ export default () => {
         >
             <Box height="100%" flexBasis="50%">
                 <Editor
+                    ref={editorEl}
                     value={state.code}
-                    onValueChange={code => setState({ code })}
+                    onValueChange={async code => {
+                        setState({ ...state, code, loading: true })
+                        const pdfSrc = await (await fetch('./api/pdf', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                content: code,
+                            }),
+                        })).text()
+
+                        setState({ ...state, code, pdfSrc, loading: false })
+                    }}
                     highlight={code => highlight(code, languages.jsx)}
                     padding={10}
                     style={{
@@ -34,8 +64,16 @@ export default () => {
                 />
             </Box>
             <Box height="100%" flexBasis="50%" padding={10}>
-                {state.code}
+                {state.loading ? (
+                    'loading...'
+                ) : state.pdfSrc ? (
+                    <iframe width="95%" height="95%" src={state.pdfSrc} />
+                ) : (
+                    'No pdf data'
+                )}
             </Box>
         </Box>
     )
 }
+
+export default Home
