@@ -23,14 +23,6 @@ const app = express()
 
 app.use(bodyParser.json({ limit: '50mb' }))
 
-// function createPdfBinary(docDefinition, callback) {
-//     pdfmake.setFonts(fonts)
-//
-//     const pdf = pdfmake.createPdf(docDefinition)
-//
-//     pdf.getDataUrl(callback)
-// }
-
 async function parseJsx(jsxString) {
     const code = `JsxPdf.renderPdf(${jsxString})`
 
