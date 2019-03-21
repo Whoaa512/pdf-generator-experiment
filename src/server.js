@@ -49,7 +49,9 @@ async function parseJsx(jsxString) {
 }
 
 function isValidPdfJson(json) {
-    // todo
+    // todo: write a JSON schema for validation
+    // [pdfmake JSON schema ? · Issue #1408 · bpampuch/pdfmake · GitHub](https://github.com/bpampuch/pdfmake/issues/1408)
+    // [PDFMakeDefs.md · GitHub](https://gist.github.com/jfdesrochers/08833957232a04638c1cad4d071b31e9)
     return true
 }
 
