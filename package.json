@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js",
+    "dev": "zero ./src",
+    "build": "zero build ./src",
+    "start": "NODE_ENV=production zero ./src",
     "start-experiment": "node experiment/index.js"
   },
   "dependencies": {
@@ -28,7 +30,8 @@
     "react-dom": "^16.8.4",
     "react-simple-code-editor": "^0.9.4",
     "ui-box": "^1.4.0",
-    "vm2": "^3.6.10"
+    "vm2": "^3.6.10",
+    "zero": "^1.0.11"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.2.0",
