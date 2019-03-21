@@ -62,6 +62,17 @@ const Home = () => {
                 </a>{' '}
                 for more information on how to write a PDF using this syntax
             </Box>
+            {state.error != null && (
+                <Box
+                    backgroundColor="#e74330"
+                    color="#FFF"
+                    paddingX={10}
+                    paddingY={5}
+                >
+                    There was an error generating the PDF:{' '}
+                    {_.get(state.error, 'message', state.error)}
+                </Box>
+            )}{' '}
             <Box display="flex" width="100%" height="100%">
                 <Box
                     flex={1}
