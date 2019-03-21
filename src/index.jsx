@@ -12,6 +12,8 @@ import 'prismjs/themes/prism.css'
 import 'prismjs/themes/prism-dark.css'
 import 'normalize.css'
 
+import '../styles/base.css'
+
 const DEFAULT_CODE = `
 <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
     <content>This will appear in my PDF!</content>
@@ -54,6 +56,7 @@ const Home = () => {
                     display="flex"
                     height="100%"
                     backgroundColor="#616B79"
+                    className="editorWrapper"
                 >
                     <Editor
                         ref={editorEl}
