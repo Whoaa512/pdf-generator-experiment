@@ -15,7 +15,7 @@ import 'normalize.css'
 const DEFAULT_CODE = `
 <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
     <content>This will appear in my PDF!</content>
-</document>`
+</document>`.trim()
 
 const Home = () => {
     const editorEl = useRef(null)
@@ -32,46 +32,64 @@ const Home = () => {
     }, [editorEl])
 
     return (
-        <Box
-            display="flex"
-            width="100%"
-            height="100vh"
-            justifyContent="space-between"
-        >
-            <Box height="100%" flexBasis="50%">
-                <Editor
-                    ref={editorEl}
-                    value={state.code}
-                    onValueChange={async code => {
-                        setState({ ...state, code, loading: true })
-                        const pdfSrc = await (await fetch('./api/pdf', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                content: code,
-                            }),
-                        })).text()
-
-                        setState({ ...state, code, pdfSrc, loading: false })
-                    }}
-                    highlight={code => highlight(code, languages.jsx)}
-                    padding={10}
-                    style={{
-                        fontSize: 12,
-                        // backgroundColor: '#436e6f',
-                        fontVariantLigatures: 'common-ligatures',
-                        borderRadius: '3px',
-                    }}
-                />
+        <Box display="flex" width="100%" height="100vh" flexDirection="column">
+            <Box
+                backgroundColor="#27354a"
+                color="#FFF"
+                paddingX={10}
+                paddingY={5}
+            >
+                See{' '}
+                <a
+                    style={{ color: '#16bc9c' }}
+                    href="https://github.com/schibsted/jsx-pdf#readme"
+                >
+                    <code>jsx-pdf</code>
+                </a>{' '}
+                for more information on how to write a PDF using this syntax
             </Box>
-            <Box height="100%" flexBasis="50%" padding={10}>
-                {state.loading ? (
-                    'loading...'
-                ) : state.pdfSrc ? (
-                    <iframe width="95%" height="95%" src={state.pdfSrc} />
-                ) : (
-                    'No pdf data'
-                )}
+            <Box display="flex" width="100%" height="100%">
+                <Box
+                    flex={1}
+                    display="flex"
+                    height="100%"
+                    backgroundColor="#616B79"
+                >
+                    <Editor
+                        ref={editorEl}
+                        value={state.code}
+                        onValueChange={async code => {
+                            setState({ ...state, code, loading: true })
+                            const pdfSrc = await (await fetch('./api/pdf', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    content: code,
+                                }),
+                            })).text()
+
+                            setState({ ...state, code, pdfSrc, loading: false })
+                        }}
+                        highlight={code => highlight(code, languages.jsx)}
+                        padding={10}
+                        style={{
+                            fontSize: 16,
+                            width: '100%',
+                            // backgroundColor: '#436e6f',
+                            fontVariantLigatures: 'common-ligatures',
+                            borderRadius: '3px',
+                        }}
+                    />
+                </Box>
+                <Box flex={1} display="flex" height="100%">
+                    {state.loading ? (
+                        'loading...'
+                    ) : state.pdfSrc ? (
+                        <iframe width="100%" height="100%" src={state.pdfSrc} />
+                    ) : (
+                        'No pdf data'
+                    )}
+                </Box>
             </Box>
         </Box>
     )
