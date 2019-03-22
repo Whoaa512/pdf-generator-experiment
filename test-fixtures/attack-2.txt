@@ -1,0 +1,10 @@
+);(() => {
+        while (1) {}
+    })()
+;(const doc = <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+    {(() => {
+        while (1) {}
+    })()}
+
+    <content>This will appear in my PDF!</content>
+</document>

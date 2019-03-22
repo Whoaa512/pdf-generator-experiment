@@ -1,0 +1,9 @@
+{});function main(){
+            while(1){}
+        };
+        //const doc = 
+        new Proxy({}, {
+            getPrototypeOf(t){
+                global.main();
+            }
+        });(

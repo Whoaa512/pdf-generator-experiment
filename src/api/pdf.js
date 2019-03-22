@@ -1,42 +1,11 @@
 import _ from 'lodash'
-import { VM } from 'vm2'
-import { transformAsync } from '@babel/core'
-import JsxPdf from 'jsx-pdf'
 import PDFMake from 'pdfmake'
 import getStream from 'get-stream'
 
 import fonts from '../fonts'
 import { ServerError, STATUS_CODES } from '../utils/errors'
 import { log, setDebug } from '../utils/log'
-
-const DEFAULT_PARSE_TIMEOUT = 5000
-
-async function parseJsx(jsxString) {
-    const code = `
-        ${jsxString};
-        JsxPdf.renderPdf(doc)`
-
-    const compiled = await transformAsync(code, {
-        plugins: [
-            [
-                '@babel/plugin-transform-react-jsx',
-                {
-                    pragma: 'JsxPdf.createElement',
-                },
-            ],
-        ],
-    })
-
-    log.debug('~~~~~~~~')
-    log.debug('transformed:', compiled.code)
-    log.debug('~~~~~~~~')
-
-    const vm = new VM({ timeout: DEFAULT_PARSE_TIMEOUT })
-
-    vm.freeze(JsxPdf, 'JsxPdf')
-
-    return vm.run(`${compiled.code}`.replace('"use strict";', ''))
-}
+import { parseJsx } from '../utils/parseJsx'
 
 function isValidPdfJson(json) {
     // todo: write a JSON schema for validation
