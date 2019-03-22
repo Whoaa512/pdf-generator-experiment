@@ -12,6 +12,10 @@ export const log = {
         /* eslint-disable-next-line no-console */
         console.error(...args)
     },
+    warn(...args) {
+        /* eslint-disable-next-line no-console */
+        console.warn(...args)
+    },
     info(...args) {
         /* eslint-disable-next-line no-console */
         console.log(...args)
