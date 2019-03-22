@@ -12,7 +12,9 @@ import { log, setDebug } from '../utils/log'
 const DEFAULT_PARSE_TIMEOUT = 5000
 
 async function parseJsx(jsxString) {
-    const code = `JsxPdf.renderPdf(${jsxString})`
+    const code = `
+        ${jsxString};
+        JsxPdf.renderPdf(doc)`
 
     const compiled = await transformAsync(code, {
         plugins: [
