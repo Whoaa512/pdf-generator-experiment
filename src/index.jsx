@@ -16,9 +16,42 @@ import './styles/base.css'
 import { log } from './utils/log'
 
 const DEFAULT_CODE = `
-<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
-    <content>This will appear in my PDF!</content>
-</document>`.trim()
+const mainContent = (
+    <content>
+        This will appear in my PDF!
+        <stack color="red">
+            <text>First red parahraph.</text>
+            <text>Second red parahraph.</text>
+        </stack>
+        <text color="blue">Blue parahraph.</text>
+        <text pageBreak="before">
+            This text is on the next page.
+        </text>
+    </content>
+)
+
+// The \`doc\` variable is required for output
+const doc = (
+    <document
+        pageMargins={[20, 20, 20, 20]}
+        pageSize="A4"
+        defaultStyle={{
+            font: 'OpenSans',
+            fontSize: 14,
+        }}
+        info={{
+            author: 'Buzz Lightyear',
+            title: 'My awesome pdf!',
+            subject: 'subject of document',
+            keywords: 'keywords for document',
+        }}
+    >
+        <header>Greeting</header>
+        {mainContent}
+        <footer>JSX-PDF, Inc.</footer>
+    </document>
+)
+`.trim()
 const DEBOUNCE_MS = 1000
 const onChange = _.debounce(async (code, state, setState) => {
     try {
