@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseJsx happy path 1`] = `
+Object {
+  "content": Object {
+    "stack": Array [
+      "This will appear in my PDF!",
+    ],
+  },
+  "defaultStyle": Object {
+    "font": "OpenSans",
+    "fontSize": 12,
+  },
+}
+`;

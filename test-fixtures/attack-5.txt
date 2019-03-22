@@ -1,4 +1,4 @@
-<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+const doc = <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
     {(() => {
         Object.getOwnPropertyDescriptor(
             Buffer.from.__lookupGetter__('__proto__').call(Buffer.from),

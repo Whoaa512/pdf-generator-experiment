@@ -1,21 +1,13 @@
 module.exports = {
     presets: [
         [
-            '@babel/env',
+            '@babel/preset-env',
             {
                 targets: {
                     node: '8',
                 },
-                useBuiltIns: `usage`,
             },
         ],
     ],
-    plugins: [
-        [
-            '@babel/plugin-transform-react-jsx',
-            {
-                pragma: 'JsxPdf.createElement',
-            },
-        ],
-    ],
+    plugins: ['babel-plugin-lodash'],
 }

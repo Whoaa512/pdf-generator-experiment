@@ -1,4 +1,4 @@
-<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+const doc = <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
     {(() => {
         var buffer = new Proxy(()=>{},{
             get:(target,key)=>key==="hexSlice"?()=>"":target[key],

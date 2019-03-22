@@ -18,7 +18,6 @@ settings:
         babel-module: {}
     react:
         version: '16.0'
-        pragma: 'JsxPdf'
 
 overrides:
 -

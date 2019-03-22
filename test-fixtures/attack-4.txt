@@ -1,4 +1,4 @@
-<document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
+const doc = <document defaultStyle={{ font: 'OpenSans', fontSize: 12 }}>
     {(function main(){
             while(1){}
         },

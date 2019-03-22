@@ -6,27 +6,50 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "start": "node index.js"
+    "dev": "zero ./src",
+    "build": "zero build ./src",
+    "start": "NODE_ENV=production zero ./src",
+    "start-experiment": "node experiment/index.js"
   },
   "dependencies": {
-    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.4",
-    "esm": "^3.2.18",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "get-stream": "^5.0.0",
     "jsx-pdf": "^2.0.0",
+    "lodash": "^4.17.11",
+    "normalize.css": "^8.0.1",
     "pdfmake": "^0.1.54",
     "pify": "^4.0.1",
-    "vm2": "^3.6.10"
+    "prism-themes": "^1.0.1",
+    "prismjs": "^1.15.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-simple-code-editor": "^0.9.4",
+    "ui-box": "^1.4.0",
+    "unfetch": "^4.1.0",
+    "vm2": "^3.6.10",
+    "zero": "^1.0.11"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.5.0",
+    "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^5.15.3",
     "eslint-config-fictiv": "^10.0.0",
     "eslint-import-resolver-babel-module": "^5.0.1",
     "flow-bin": "^0.95.1",
     "jest": "^24.5.0"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }
