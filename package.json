@@ -12,14 +12,10 @@
     "start-experiment": "node experiment/index.js"
   },
   "dependencies": {
-    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.4",
-    "babel-jest": "^24.5.0",
     "body-parser": "^1.18.3",
-    "esm": "^3.2.18",
     "express": "^4.16.4",
     "get-stream": "^5.0.0",
     "jsx-pdf": "^2.0.0",
@@ -39,6 +35,9 @@
     "zero": "^1.0.11"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.5.0",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^5.15.3",
