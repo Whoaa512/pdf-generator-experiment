@@ -66,6 +66,18 @@ module.exports = async (req, res) => {
         const statusCode =
             error.statusCode || STATUS_CODES.INTERNAL_SERVER_ERROR
 
-        res.sendStatus(statusCode)
+        const json = Buffer.from(
+            JSON.stringify(
+                {
+                    error: error.message || error,
+                    statusCode,
+                },
+                null,
+                2,
+            ),
+        ).toString('base64')
+        const payload = `data:plain/text;base64,${json}`
+
+        res.type('text').send(payload)
     }
 }
