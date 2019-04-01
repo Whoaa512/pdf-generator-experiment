@@ -7023,9 +7023,9 @@ jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
-jsx-pdf@whoaa512/jsx-pdf#034c531045147f56c5f7b160b1223d077d71a6f5:
+jsx-pdf@whoaa512/jsx-pdf#40bc3aa:
   version "2.0.0"
-  resolved "https://codeload.github.com/whoaa512/jsx-pdf/tar.gz/034c531045147f56c5f7b160b1223d077d71a6f5"
+  resolved "https://codeload.github.com/whoaa512/jsx-pdf/tar.gz/40bc3aaa69b18cf74dc818f699f402e1b1a9b090"
   dependencies:
     lodash "^4.17.10"
 

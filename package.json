@@ -18,7 +18,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "get-stream": "^5.0.0",
-    "jsx-pdf": "whoaa512/jsx-pdf#034c531045147f56c5f7b160b1223d077d71a6f5",
+    "jsx-pdf": "whoaa512/jsx-pdf#40bc3aa",
     "lodash": "^4.17.11",
     "normalize.css": "^8.0.1",
     "pdfmake": "^0.1.54",
