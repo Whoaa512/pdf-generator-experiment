@@ -2,6 +2,7 @@ import _ from 'lodash'
 import { VM } from 'vm2'
 import { transformAsync } from '@babel/core'
 import JsxPdf from 'jsx-pdf'
+import moment from 'moment-timezone'
 
 import { log } from './log'
 
@@ -35,6 +36,7 @@ export async function parseJsx(jsxString, timeout = DEFAULT_PARSE_TIMEOUT) {
     const vm = new VM({ timeout: timeout || DEFAULT_PARSE_TIMEOUT })
 
     vm.freeze(JsxPdf, 'JsxPdf')
+    vm.freeze(moment, 'moment')
 
     return vm.run(`${compiled.code}`.replace('"use strict";', ''))
 }

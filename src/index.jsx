@@ -111,6 +111,7 @@ const Home = () => {
                     flex={1}
                     display="flex"
                     height="100%"
+                    maxWidth="50vw"
                     className="editorWrapper"
                 >
                     <Editor
@@ -149,7 +150,7 @@ const Home = () => {
 export default Home
 
 async function getPdfSrc(code) {
-    return (await fetch('./api/pdf', {
+    return (await fetch('/api/pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -41,8 +41,16 @@ module.exports = async (req, res) => {
         }
 
         log.debug({ compiledPdfJson }, 'Got pdf json')
+        console.log(
+            'compiledPdfJson',
+            require('util').inspect(compiledPdfJson, {
+                depth: null,
+                colors: true,
+            }),
+        )
 
         const pdfMake = new PDFMake(fonts)
+
         const pdfStream = pdfMake.createPdfKitDocument(compiledPdfJson)
 
         pdfStream.end()
@@ -76,7 +84,7 @@ module.exports = async (req, res) => {
                 2,
             ),
         ).toString('base64')
-        const payload = `data:plain/text;base64,${json}`
+        const payload = `data:text/plain;base64,${json}`
 
         res.type('text').send(payload)
     }
