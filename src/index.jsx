@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import Box from 'ui-box'
 import fetch from 'unfetch'
 import Editor from 'react-simple-code-editor'
+import AceEditor from 'react-ace'
 import { highlight, languages } from 'prismjs/components/prism-core'
 import 'normalize.css'
 import 'prismjs/components/prism-clike'
@@ -11,6 +12,7 @@ import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/themes/prism.css'
 import 'prism-themes/themes/prism-a11y-dark.css'
+import 'brace/mode/jsx'
 import './styles/base.css'
 
 import { log } from './utils/log'
@@ -113,14 +115,14 @@ const Home = () => {
                     height="100%"
                     className="editorWrapper"
                 >
-                    <Editor
+                    <AceEditor
                         ref={editorEl}
                         value={state.code}
                         onValueChange={code => {
                             setState({ ...state, code, loading: true })
                             onChange(code, state, setState)
                         }}
-                        highlight={code => highlight(code, languages.jsx)}
+                        // highlight={code => highlight(code, languages.jsx)}
                         padding={10}
                         style={{
                             fontSize: 16,
@@ -131,6 +133,24 @@ const Home = () => {
                             borderRadius: '3px',
                         }}
                     />
+                    {/* <Editor */}
+                    {/*     ref={editorEl} */}
+                    {/*     value={state.code} */}
+                    {/*     onValueChange={code => { */}
+                    {/*         setState({ ...state, code, loading: true }) */}
+                    {/*         onChange(code, state, setState) */}
+                    {/*     }} */}
+                    {/*     highlight={code => highlight(code, languages.jsx)} */}
+                    {/*     padding={10} */}
+                    {/*     style={{ */}
+                    {/*         fontSize: 16, */}
+                    {/*         width: '100%', */}
+                    {/*         color: '#b0bec5', */}
+                    {/*         backgroundColor: '#2b2b2b', */}
+                    {/*         fontVariantLigatures: 'common-ligatures', */}
+                    {/*         borderRadius: '3px', */}
+                    {/*     }} */}
+                    {/* /> */}
                 </Box>
                 <Box flex={1} display="flex" height="100%">
                     {state.loading ? (
