@@ -11,7 +11,7 @@
     "start": "NODE_ENV=production zero ./src",
     "start-experiment": "node experiment/index.js",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "yarn run snyk-protect"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",
@@ -35,7 +35,7 @@
     "unfetch": "^4.1.0",
     "vm2": "^3.6.11",
     "zero": "^1.0.11",
-    "snyk": "^1.234.2"
+    "snyk": "^1.271.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
