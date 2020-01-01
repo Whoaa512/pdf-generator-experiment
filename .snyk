@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -1162,3 +1162,7 @@ patch:
         patched: '2019-10-12T06:38:30.719Z'
     - zero > zero-bundler-process > zero-handlers-map > zero-handler-react > babel-preset-stage-0 > babel-preset-stage-1 > babel-preset-stage-2 > babel-preset-stage-3 > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-template > babel-traverse > babel-types > lodash:
         patched: '2019-10-12T06:38:30.719Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-01-01T04:53:52.719Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-01-01T04:53:52.719Z'
