@@ -1166,3 +1166,7 @@ patch:
         patched: '2020-01-01T04:53:52.719Z'
     - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
         patched: '2020-01-01T04:53:52.719Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-01-01T22:27:37.488Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-01-01T22:27:37.488Z'
