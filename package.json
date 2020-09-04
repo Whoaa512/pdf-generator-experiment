@@ -21,7 +21,7 @@
     "express": "^4.16.4",
     "get-stream": "^5.0.0",
     "jsx-pdf": "^2.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "normalize.css": "^8.0.1",
     "pdfmake": "^0.1.54",
     "pify": "^4.0.1",
