@@ -18,7 +18,7 @@
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/polyfill": "^7.2.5",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "get-stream": "^5.0.0",
     "jsx-pdf": "^2.1.0",
     "lodash": "^4.17.21",
